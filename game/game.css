@@ -1,0 +1,66 @@
+:root {
+    --head: url('../images/slh.png');
+    --leg1: url('../images/srll.png');
+    --leg2: url('../images/slrl.png');
+    --rot1: 0deg;
+    --rot2: 0deg;
+    --roth: 0deg;
+}
+
+.SteveBody {
+    z-index: 2;
+}
+
+.StevePart {
+    background-color: transparent;
+}
+
+.SteveHead {
+    background-image: var(--head);
+    transform: rotate(var(--roth));
+    z-index: 4;
+}
+
+.SteveArms::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url('../images/sla.png');
+    z-index: 1;
+    transform: rotate(var(--rot2));
+    transform-origin: 50% 0%;
+}
+
+.SteveArms::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url('../images/sra.png');
+    z-index: 3;
+    transform: rotate(var(--rot1));
+    transform-origin: 50% 0%;
+}
+
+.SteveLegs::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: var(--leg1);
+    z-index: 3;
+    transform: rotate(var(--rot2));
+    transform-origin: 50% 0%;
+}
+
+.SteveLegs::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: var(--leg2);
+    z-index: 1;
+    transform: rotate(var(--rot1));
+    transform-origin: 50% 0%;
+}

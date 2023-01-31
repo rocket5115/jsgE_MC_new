@@ -1,0 +1,145 @@
+@font-face {
+    font-family: "MC";
+    src: url("../fonts/MCR.otf");
+}
+
+:root {
+    --inv-left: -200px;
+    --inv-0: "";
+    --inv-1: "";
+    --inv-2: "";
+    --inv-3: "";
+    --inv-4: "";
+    --inv-5: "";
+    --inv-6: "";
+    --inv-7: "";
+    --inv-8: "";
+}
+
+.inventory {
+    display: grid;
+    left: calc((100% - 676px)/2) !important;
+    grid-template-columns: 64px  64px  64px  64px  64px  64px  64px  64px  64px;
+    grid-gap: 10px;
+    row-gap: 10px;
+    height: 84px;
+    background: rgb(215,215,215);
+    background: linear-gradient(0deg, rgba(171, 171, 171, 0.918) 0px, rgba(171, 171, 171, 0.918) 10px, rgba(119, 117, 117, 0.428) 10px, rgba(119, 117, 117, 0.428) 74px, rgba(171, 171, 171, 0.918) 74px, rgba(171, 171, 171, 0.918) 84px);
+}
+
+.inventory>div {
+    position: relative;
+    top: 14px;
+    left: 14px;
+    height: 56px;
+    width: 56px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.inventory::after {
+    content: "";
+    position: absolute;
+    left: calc(var(--inv-left) - 3px);
+    top: -3px;
+    width: 62px;
+    height: 62px;
+    border: 14px solid white;
+}
+
+.inventory::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 64px;
+    top: 10px;
+    background: rgb(215,215,215);
+    background: linear-gradient(90deg, rgba(171, 171, 171, 0.918) 0px, rgba(171, 171, 171, 0.918) 10px, rgba(119, 117, 117, 0.428) 10px, rgba(119, 117, 117, 0.428) 74px, rgba(171, 171, 171, 0.918) 74px, rgba(171, 171, 171, 0.918) 84px, rgba(171, 171, 171, 0.918) 74px, rgba(171, 171, 171, 0.918) 84px, rgba(119, 117, 117, 0.428) 84px, rgba(119, 117, 117, 0.428) 148px, rgba(171, 171, 171, 0.918) 148px, rgba(171, 171, 171, 0.918) 158px, rgba(171, 171, 171, 0.918) 148px, rgba(171, 171, 171, 0.918) 158px, rgba(119, 117, 117, 0.428) 158px, rgba(119, 117, 117, 0.428) 222px, rgba(171, 171, 171, 0.918) 222px, rgba(171, 171, 171, 0.918) 232px, rgba(171, 171, 171, 0.918) 222px, rgba(171, 171, 171, 0.918) 232px, rgba(119, 117, 117, 0.428) 232px, rgba(119, 117, 117, 0.428) 296px, rgba(171, 171, 171, 0.918) 296px, rgba(171, 171, 171, 0.918) 306px, rgba(171, 171, 171, 0.918) 296px, rgba(171, 171, 171, 0.918) 306px, rgba(119, 117, 117, 0.428) 306px, rgba(119, 117, 117, 0.428) 370px, rgba(171, 171, 171, 0.918) 370px, rgba(171, 171, 171, 0.918) 380px, rgba(171, 171, 171, 0.918) 370px, rgba(171, 171, 171, 0.918) 380px, rgba(119, 117, 117, 0.428) 380px, rgba(119, 117, 117, 0.428) 444px, rgba(171, 171, 171, 0.918) 444px, rgba(171, 171, 171, 0.918) 454px, rgba(171, 171, 171, 0.918) 444px, rgba(171, 171, 171, 0.918) 454px, rgba(119, 117, 117, 0.428) 454px, rgba(119, 117, 117, 0.428) 518px, rgba(171, 171, 171, 0.918) 518px, rgba(171, 171, 171, 0.918) 528px, rgba(171, 171, 171, 0.918) 518px, rgba(171, 171, 171, 0.918) 528px, rgba(119, 117, 117, 0.428) 528px, rgba(119, 117, 117, 0.428) 592px, rgba(171, 171, 171, 0.918) 592px, rgba(171, 171, 171, 0.918) 602px, rgba(171, 171, 171, 0.918) 592px, rgba(171, 171, 171, 0.918) 602px, rgba(119, 117, 117, 0.428) 602px, rgba(119, 117, 117, 0.428) 666px, rgba(171, 171, 171, 0.918) 666px, rgba(171, 171, 171, 0.918) 676px);
+}
+
+#Inv0::after {
+    content: var(--inv-0);
+    position: absolute;
+    top: 36px;
+    width: 100%;
+    height: 100%;
+    text-align: right;
+}
+
+#Inv1::after {
+    content: var(--inv-1);
+    position: absolute;
+    top: 36px;
+    width: 100%;
+    height: 100%;
+    text-align: right;
+}
+
+#Inv2::after {
+    content: var(--inv-2);
+    position: absolute;
+    top: 36px;
+    width: 100%;
+    height: 100%;
+    text-align: right;
+}
+
+#Inv3::after {
+    content: var(--inv-3);
+    position: absolute;
+    top: 36px;
+    width: 100%;
+    height: 100%;
+    text-align: right;
+}
+
+#Inv4::after {
+    content: var(--inv-4);
+    position: absolute;
+    top: 36px;
+    width: 100%;
+    height: 100%;
+    text-align: right;
+}
+
+#Inv5::after {
+    content: var(--inv-5);
+    position: absolute;
+    top: 36px;
+    width: 100%;
+    height: 100%;
+    text-align: right;
+}
+
+#Inv6::after {
+    content: var(--inv-6);
+    position: absolute;
+    top: 36px;
+    width: 100%;
+    height: 100%;
+    text-align: right;
+}
+
+#Inv7::after {
+    content: var(--inv-7);
+    position: absolute;
+    top: 36px;
+    width: 100%;
+    height: 100%;
+    text-align: right;
+}
+
+#Inv8::after {
+    content: var(--inv-8);
+    position: absolute;
+    top: 36px;
+    width: 100%;
+    height: 100%;
+    text-align: right;
+}
+
+.inventory>div {
+    color: white;
+    font-family: MC;
+    font-size: 20px;
+}
