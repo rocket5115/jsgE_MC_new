@@ -28,7 +28,6 @@ class SceneCreator {
         return this.id;
     };
     CreateObject(x,y,w,h,s) {
-        console.log('Called')
         let objid = "SE"+(Math.random()*5).toFixed(10);
         $("#SceneElement"+this.id).append(`<div id="${objid}" style="position:absolute;width:${w}px;height:${h}px;left:${x}px;top:${y}px"></div>`);
         SceneObjects[this.id][objid]={

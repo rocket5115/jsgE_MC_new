@@ -66,8 +66,12 @@ class Inventory {
             };
             if(selected==-1){
                 for(let i=0;i<=8;i++){
-                    if(!this.personalInventory[i]){return i;};
+                    if(!this.personalInventory[i]){
+                        return i;
+                    };
                 };
+            } else {
+                return selected
             };
         } else {
             for(let i=0;i<=8;i++){
