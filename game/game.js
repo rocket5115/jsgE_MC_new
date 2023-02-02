@@ -27,6 +27,7 @@ class Grid {
         this.maxx=0;
         this.miny=0;
         this.maxy=0;
+        this.loaded=[];
     };
     SetGridLayout(table) {
         for(let i=0;i<table.length;i++){
@@ -56,8 +57,18 @@ class Grid {
         this.maxy=y+5<this.grid[0].length?y+5:this.grid[0].length-1;
     };
     LoadChunk(x,y) {
-        x=Math.floor(x/5);
-        y=Math.floor(y/5);
+        x = Math.floor(x/5);
+        y = Math.floor(y/5);
+        if((x<0||y<0)||(!this.chunks[x]||this.chunks[x]?.ypos===undefined)||!this.chunks[x].ypos[y])return;
+        if(!this.loaded[x]) {
+            this.loaded[x]=[];
+            this.loaded[x][y]=true;
+        } else {
+            if(this.loaded[x][y]){
+                return;
+            };
+            this.loaded[x][y] = true;
+        };
         for(let i=this.chunks[x].xmin;i<=this.chunks[x].xmax;i++){
             for(let j=this.chunks[x].ypos[y].ymin;j<=this.chunks[x].ypos[y].ymax;j++){
                 if(this.grid[i][j]&&this.grid[i][j].load){
@@ -68,6 +79,23 @@ class Grid {
                 };
             };
         };
+    };
+    UnloadChunk(x,y) {
+        x = Math.floor(x/5);
+        y = Math.floor(y/5);
+        if((x<0||y<0)||(!this.chunks[x]||this.chunks[x]?.ypos===undefined)||!this.chunks[x].ypos[y])return;
+        if(!this.loaded[x])return;
+        if(!this.loaded[x][y])return;
+        for(let i=this.chunks[x].xmin;i<=this.chunks[x].xmax;i++){
+            for(let j=this.chunks[x].ypos[y].ymin;j<=this.chunks[x].ypos[y].ymax;j++){
+                if(this.grid[i][j]&&typeof(this.grid[i][j])=="string"){
+                    let img = scene.object.GetImage(this.grid[i][j]);
+                    gridRemove(i,j);
+                    this.grid[i][j] = {load:img,await:true};
+                };
+            };
+        };
+        this.loaded[x][y]=false;
     };
     get GetClosestObjects() {
         let values = [];

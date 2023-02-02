@@ -1,4 +1,4 @@
-var scene = new SceneCreator(Math.floor(1200/64)*64,Math.floor(1200/64)*64,64)
+var scene = new SceneCreator(Math.floor(1920/64)*64,Math.floor(1080/64)*64,64)
 let background = scene.CreateScene();
 document.getElementById('SceneElement'+background).style.backgroundColor = 'transparent';
 let sky = scene.CreateObject(0,0,scene.size.x,scene.size.y);
@@ -224,13 +224,23 @@ const Move = () => {
 setTimeout(Move,10);
 
 let LoadedChunks = [];
-
 setInterval(()=>{
     let [x,y] = [Math.floor(Number(stdoc.style.left.replace('px',''))/64),Math.floor(Number(stdoc.style.top.replace('px',''))/64)];
     for(let i=x-2>0?x-2:0;i<=x+2;i++){
         for(let j=y-2>0?y-2:0;j<=y+2;j++){
-            //Add Loaded Chunks
             gr.LoadChunk(i,j);
+            gr.LoadChunk(i+6,j);
+            gr.LoadChunk(i-6,j);
+            gr.LoadChunk(i+6,j+6);
+            gr.LoadChunk(i-6,j+6);
+            gr.LoadChunk(i+6,j-6);
+            gr.LoadChunk(i-6,j-6);
+            gr.UnloadChunk(i-15,j);
+            gr.UnloadChunk(i+15,j);
+            gr.UnloadChunk(i-15,j+9);
+            gr.UnloadChunk(i+15,j+9);
+            gr.UnloadChunk(i-15,j-9);
+            gr.UnloadChunk(i+15,j-9);
         };
     };
 },100);

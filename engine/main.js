@@ -1,11 +1,15 @@
 const Scenes = {};
 const SceneObjects = {}; // Used as physics reference
+var MaxSizeScene = 0;
+var MaxSizeX = 0;
 
 class SceneCreator {
     constructor(x,y,h) {
         this.x = x||1920;
         this.y = y||1080;
         this.id = Math.floor((this.x/this.y)*Math.random()*10);
+        MaxSizeScene=this.id;
+        MaxSizeX=MaxSizeX<x?x:MaxSizeX;
         this.h;
         if(h){
             this.h = h;
@@ -315,7 +319,11 @@ class MiscObject {
 
 const FocusOnElement = () =>{
     if(FocusOn[0]!=undefined){
-        let elementRect=FocusOn[0].getBoundingClientRect();
-        window.scrollTo((elementRect.left + window.pageXOffset) - (1920/2), (elementRect.top + window.pageYOffset) - (1080 / 4));
+        if(MaxSizeX-Number(FocusOn[0].style.left.replace('px',''))<100){
+            return
+        } else {
+            let elementRect=FocusOn[0].getBoundingClientRect();
+            window.scrollTo((elementRect.left + window.pageXOffset) - (1920/2), (elementRect.top + window.pageYOffset) - (1080 / 4));
+        };
     };
 };
